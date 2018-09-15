@@ -5,7 +5,7 @@ var express = require('express'),
     router = express.Router();
 
 
-router.post('/', function(req, res) {
+router.post('/results', function(req, res) {
     console.log(req.body.query);
     res.render('result', {});
 });
