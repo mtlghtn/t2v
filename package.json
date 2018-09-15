@@ -1,0 +1,23 @@
+{
+  "name": "t2v",
+  "version": "1.0.0",
+  "description": "a helper for those who can't draw",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtlghtn/t2v.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtlghtn/t2v/issues"
+  },
+  "homepage": "https://github.com/mtlghtn/t2v#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}
