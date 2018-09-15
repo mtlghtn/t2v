@@ -1,33 +1,42 @@
 import './scss/index.scss'
 
+const imageCollection = require('./imageCollection');
+const imageDictionary = require('./imageDictionary');
+
 (function($){
     //Anonymous functions...
 
     //helper function to fetch object manifest
-    //@returns array
     function getObjectList() {
-        $.getJSON("../object-manifest.json", function(data){
-            var imgColl = new imageCollection(), id, nameList, imgPath;
-            $.each(data, function(k,v){
-                switch(k){
-                    case 'id':
-                        id = v;
-                        break;
-                    case 'name':
-                        nameList = v;
-                        break;
-                    case 'imagePath':
-                        imgPath = v;
-                        break;
-                }
+        var collection;
+        $.getJSON("object-manifest.json", function(data){
+            var id, nameList, imgPath;
+            collection = new imageCollection();
+            $.each(data.items, function(item){
+                $.each(item, function(k,v){
+                    switch(k){
+                        case 'id':
+                            id = v;
+                            break;
+                        case 'name':
+                            nameList = v;
+                            break;
+                        case 'imagePath':
+                            imgPath = v;
+                            break;
+                    }
+                });
+                collection.add((new imageDictionary(id, nameList, imgPath)).getDict());
             });
-            imgColl.add(new imageDictionary(id, nameList, imgPath))
-        })
+            sessionStorage.setItem('imgColl', JSON.stringify(collection.getDict()));
+        });
     }
+    getObjectList();
+
 
     $(function(){
         //Run on DOM ready
-        const body = $('body');
+        const body = $('body'), imgColl = JSON.parse(sessionStorage.getItem('imgColl'));
 
         //validate form before submit, also strip tags to prevent XSS
         body.on('submit', '#scriptInput', function(e){
