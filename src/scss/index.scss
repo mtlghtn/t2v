@@ -12,7 +12,13 @@ html{
         background-color: beige;
         box-shadow: 0 0 20px #888888;
         font-family: 'Roboto Condensed', sans-serif;
+        overflow-x: hidden;
     }
+}
+
+textarea.input {
+    width: 100%;
+    height: 50vh;
 }
 
 canvas.output {
