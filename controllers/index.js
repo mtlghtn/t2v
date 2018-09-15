@@ -1,9 +1,12 @@
 var express = require('express'),
     prepositions = require('./prepositions'),
     position = require('./position'),
+    bodyParser = require('body-parser'),
     router = express.Router();
 
-router.post('/', function(req, res) {
+
+router.post('/results', function(req, res) {
+    console.log(req.body.query);
     res.render('result', {});
 });
 
