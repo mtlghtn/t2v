@@ -7,7 +7,21 @@ import './scss/index.scss'
     //@returns array
     function getObjectList() {
         $.getJSON("../object-manifest.json", function(data){
-
+            var imgColl = new imageCollection(), id, nameList, imgPath;
+            $.each(data, function(k,v){
+                switch(k){
+                    case 'id':
+                        id = v;
+                        break;
+                    case 'name':
+                        nameList = v;
+                        break;
+                    case 'imagePath':
+                        imgPath = v;
+                        break;
+                }
+            });
+            imgColl.add(new imageDictionary(id, nameList, imgPath))
         })
     }
 
