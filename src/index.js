@@ -1,6 +1,16 @@
 import './scss/index.scss'
 
 (function($){
+    //Anonymous functions...
+
+    //helper function to fetch object manifest
+    //@returns array
+    function getObjectList() {
+        $.getJSON("../object-manifest.json", function(data){
+
+        })
+    }
+
     $(function(){
         //Run on DOM ready
         const body = $('body');
@@ -23,7 +33,5 @@ import './scss/index.scss'
             return container.innerHTML; // innerHTML will be a xss safe string
         }
     })
-
-    //Anonymous functions...
 
 })(jQuery)
