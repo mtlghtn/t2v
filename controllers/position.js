@@ -1,6 +1,6 @@
 /* structure of input:
  *
- * wordList = [
+ * objs = [
  *  {
  *      action: 'up',
  *      imgPath: '../public/images',
@@ -15,78 +15,55 @@
  * }
  */
 
-// Testing data:
-/*
-wordList = [
-    {
-        action: 'up',
-        imgPath: '../public/images',
-        imgX: 100,
-        imgY: 200
-    },
-    {
-        action: 'left',
-        imgPath: '../public/images',
-        imgX: 200,
-        imgY: 300
-    }
-];
-canvas = {
-    x:800,
-    y: 600
-}
-*/
-
-const calculatePositions = function (wordList, canvas) {
+const calculatePositions = function (objs, action, canvas) {
     var wordA = {
         img: {
-            path: wordList[0].imgPath,
-            x: wordList[0].imgX,
-            y: wordList[0].imgY
+            path: objs[0].imgPath,
+            width: objs[0].imgX,
+            height: objs[0].imgY
         },
-        action: wordList[0].action,
         x: 0,
         y: 0
     };
     var wordB = {
         img: {
-            path: wordList[1].imgPath,
-            x: wordList[1].imgX,
-            y: wordList[1].imgY
+            path: objs[1].imgPath,
+            width: objs[1].imgX,
+            height: objs[1].imgY
         },
-        action: wordList[1].action,
         x: 0,
         y: 0
     };
 
-    if(wordA.action == 'center') {
+    if(action == 'center') {
         // A in B
-        wordA.x = canvas.x/2 - wordA.img.x/2;
-        wordB.x = canvas.x/2 - wordB.img.x/2;
-        wordA.y = canvas.y - wordA.img.y;
-        wordB.y = canvas.y - wordB.img.y;
-    } else if (wordA.action == 'left') {
+        wordA.x = canvas.width/2 - wordA.img.width/2;
+        wordB.x = canvas.width/2 - wordB.img.width/2;
+        wordA.y = canvas.height - wordA.img.height;
+        wordB.y = canvas.height - wordB.img.height;
+    } else if (action == 'left') {
         // A to the left, B to the right
-        wordA.x = canvas.x/4 - wordA.img.x/2;
-        wordB.x = canvas.x - canvas.x/4 - wordB.img.x/2;
-        wordA.y = canvas.y - wordA.img.y;
-        wordB.y - canvas.y - wordB.img.y;
-    } else if (wordA.action == 'up') {
+        wordA.x = canvas.width/4 - wordA.img.width/2;
+        wordB.x = canvas.width - canvas.width/4 - wordB.img.width/2;
+        wordA.y = canvas.height - wordA.img.height;
+        wordB.y - canvas.height - wordB.img.height;
+    } else if (action == 'up') {
         // A over B
-        wordA.x = canvas.x/2 - wordA.img.x/2;
-        wordB.x = canvas.x/2 - wordB.img.x/2;
-        wordB.y = canvas.y - wordB.img.y;
-        wordA.y = canvas.y - wordB.img.y - wordA.img.y;
-    } else if (wordA.action == 'down') {
+        wordA.x = canvas.width/2 - wordA.img.width/2;
+        wordB.x = canvas.width/2 - wordB.img.width/2;
+        wordB.y = canvas.height - wordB.img.height;
+        wordA.y = canvas.height - wordB.img.height - wordA.img.height;
+    } else if (action == 'down') {
         // A under B
-        wordA.x = canvas.x/2 - wordA.img.x/2;
-        wordB.x = canvas.x/2 - wordB.img.x/2;
-        wordA.y = canvas.y - wordA.img.y;
-        wordB.y = canvas.y - wordA.img.y - wordB.img.y;
+        wordA.x = canvas.width/2 - wordA.img.width/2;
+        wordB.x = canvas.width/2 - wordB.img.width/2;
+        wordA.y = canvas.height - wordA.img.height;
+        wordB.y = canvas.height - wordA.img.height - wordB.img.height;
     }
-    console.log(wordA);
-    console.log(wordB);
-    return {wordA: wordA, wordB: wordB};
+    return {
+      objectA: wordA,
+      objectA: wordB
+    };
 }
 
 // calculatePositions(wordList, canvas);

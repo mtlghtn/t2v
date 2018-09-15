@@ -1,3 +1,8 @@
+/*
+ * A helper for parsing preposition from a sentence since compromise does not provide an API for that.
+ * For simplicity of the demo, only predefined prepositions in acceptedPrepositions will be processed
+ */
+
 'use strict';
 
 const acceptedPrepositions = [
@@ -39,8 +44,8 @@ const getPrepositions = function(wordList){
   return prepositionsList;
 };
 
-const setRelativePosition = function(preposition){
-  for(iter of actionMap){
+const relativePosition = function(preposition){
+  for(var iter of actionMap){
     if(iter.prepositions.includes(preposition)){
       return iter.action
     }
@@ -48,5 +53,6 @@ const setRelativePosition = function(preposition){
 };
 
 module.exports = {
-  getPrepositions: getPrepositions
+  getPrepositions: getPrepositions,
+  relativePosition: relativePosition,
 };
