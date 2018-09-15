@@ -21,7 +21,6 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
-<<<<<<< HEAD
     "vue": "^2.5.17"
   },
   "devDependencies": {
@@ -29,8 +28,6 @@
     "style-loader": "^0.23.0",
     "webpack": "^4.19.0",
     "webpack-cli": "^3.1.0"
-=======
     "request": "^2.88.0"
->>>>>>> bbe6388730711ce98750540d1bcfd93ee0b3e816
   }
 }
