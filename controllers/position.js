@@ -61,10 +61,12 @@ const calculatePositions = function (objs, action, canvas) {
         wordB.y = canvas.height - wordA.img.height - wordB.img.height;
     }
     return {
-      objectA: wordA, 
+      objectA: wordA,
       objectA: wordB
     };
 }
+
+// calculatePositions(wordList, canvas);
 
 module.exports = {
     calculatePositions: calculatePositions

@@ -1,5 +1,9 @@
 {
     "id": 0,
-    "name": "car, vehicle, etc...",
+    "name": [
+        "car",
+        "vehicle",
+        "etc..."
+    ],
     "imagePath": "insert image path here (relative pls)"
 }
