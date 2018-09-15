@@ -15,6 +15,28 @@
  * }
  */
 
+// Testing data:
+/*
+wordList = [
+    {
+        action: 'up',
+        imgPath: '../public/images',
+        imgX: 100,
+        imgY: 200
+    },
+    {
+        action: 'left',
+        imgPath: '../public/images',
+        imgX: 200,
+        imgY: 300
+    }
+];
+canvas = {
+    x:800,
+    y: 600
+}
+*/
+
 const calculatePositions = function (wordList, canvas) {
     var wordA = {
         img: {
@@ -62,8 +84,12 @@ const calculatePositions = function (wordList, canvas) {
         wordA.y = canvas.y - wordA.img.y;
         wordB.y = canvas.y - wordA.img.y - wordB.img.y;
     }
+    console.log(wordA);
+    console.log(wordB);
     return {wordA: wordA, wordB: wordB};
 }
+
+// calculatePositions(wordList, canvas);
 
 module.exports = {
     calculatePositions: calculatePositions
