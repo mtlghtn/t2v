@@ -6,6 +6,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'))
+app.use(require('./controllers'));
 
 app.get('/', function (req, res) {
     res.render('index');
