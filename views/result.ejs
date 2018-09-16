@@ -24,6 +24,7 @@
 <script>
     function draw() {
         var ctx = document.getElementById('canvas').getContext('2d');
+        ctx.fillStyle='#FF0000';
         var imgA = new Image();
         var imgB = new Image();
         var imgAX = <%= objectA.x%>;
@@ -38,6 +39,7 @@
         };
         imgA.src = '<%= objectA.img.path%>';
         imgB.src = '<%= objectB.img.path%>';
+
     }
 
     window.addEventListener('load', function () {
