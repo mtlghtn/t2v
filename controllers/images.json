@@ -1,61 +1,61 @@
 [
   {
     "name":"table",
-    "path":"./public/images/table.png",
+    "path":"./images/table.png",
     "width":"2400",
     "height":"1022"
   },
   {
     "name":"dog",
-    "path":"./public/images/dog.png",
+    "path":"./images/dog.png",
     "width":"267",
     "height":"203"
   },
   {
     "name":"fox",
-    "path":"./public/images/fox.png",
+    "path":"./images/fox.png",
     "width":"200",
     "height":"200"
   },
   {
     "name":"child",
-    "path":"./public/images/child.png",
+    "path":"./images/child.png",
     "width":"637",
     "height":"1018"
   },
   {
     "name":"cage",
-    "path":"./public/images/cage.png",
+    "path":"./images/cage.png",
     "width":"2663",
     "height":"3002"
   },
   {
     "name":"house",
-    "path":"./public/images/house.png",
+    "path":"./images/house.png",
     "width":"1172",
     "height":"814"
   },
   {
     "name":"girl",
-    "path":"./public/images/girl.png",
+    "path":"./images/girl.png",
     "width":"200",
     "height":"200"
   },
   {
     "name":"river",
-    "path":"./public/images/river.png",
+    "path":"./images/river.png",
     "width":"960",
     "height":"610"
   },
   {
     "name":"couch",
-    "path":"./public/images/couch.png",
+    "path":"./images/couch.png",
     "width":"3499",
     "height":"1453"
   },
   {
     "name":"man",
-    "path":"./public/images/man.png",
+    "path":"./images/man.png",
     "width":"368",
     "height":"1112"
   }
