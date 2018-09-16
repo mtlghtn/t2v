@@ -37,11 +37,18 @@ const imageDictionary = require('./imageDictionary');
         const body = $('body'), canvas = $('.output'), imgColl = JSON.parse(sessionStorage.getItem('imgColl'));
 
         if(canvas.length > 0){
-            var ctx = canvas[0].getContext("2d");
+            var cwidth = body.css('width'), cheight = canvas.css('height'), ctx = canvas[0].getContext("2d");
+            ctx.canvas.width = cwidth*2;
+            ctx.canvas.height = cheight*2;
+
             ctx.beginPath();
             ctx.arc(95, 50, 40, 0, 2 * Math.PI);
             ctx.stroke();
         }
+
+        body.on('click', 'button.go-back', function(e){
+            window.history.back();
+        });
 
         //validate form before submit, also strip tags to prevent XSS
         body.on('submit', '#scriptInput', function(e){

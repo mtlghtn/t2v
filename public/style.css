@@ -19,3 +19,6 @@ canvas.output {
   background-color: white;
   width: 100%;
   max-height: 80vh; }
+
+button.go-back {
+  margin-top: 10px; }
