@@ -19,8 +19,8 @@ const calculatePositions = function (objs, action, canvas) {
     var wordA = {
         img: {
             path: objs[0].imgPath,
-            width: objs[0].imgX,
-            height: objs[0].imgY
+            width: objs[0].imgWidth,
+            height: objs[0].imgHeight
         },
         x: 0,
         y: 0
@@ -28,8 +28,8 @@ const calculatePositions = function (objs, action, canvas) {
     var wordB = {
         img: {
             path: objs[1].imgPath,
-            width: objs[1].imgX,
-            height: objs[1].imgY
+            width: objs[1].imgWidth,
+            height: objs[1].imgHeight
         },
         x: 0,
         y: 0
@@ -62,7 +62,7 @@ const calculatePositions = function (objs, action, canvas) {
     }
     return {
       objectA: wordA,
-      objectA: wordB
+      objectB: wordB
     };
 }
 

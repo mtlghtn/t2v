@@ -19,6 +19,7 @@
   "homepage": "https://github.com/mtlghtn/t2v#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "compromise": "^11.12.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3"
   },
