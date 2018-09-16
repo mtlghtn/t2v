@@ -19,7 +19,7 @@ router.post('/results', function(req, res) {
         height: 600
     });
     // console.log(positionedQuery);
-    res.render('result', positionedQuery);
+    res.render('result', { 'positionedQuery': positionedQuery });
 });
 
 /*
