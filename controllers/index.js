@@ -3,29 +3,23 @@ var express = require('express'),
     position = require('./position'),
     bodyParser = require('body-parser'),
     parser = require('./parser'),
+    image = require('./image'),
     router = express.Router();
 
 
 router.post('/results', function(req, res) {
     var rawQuery = req.body.query;
     var parsedQuery = parser.parseSentence(rawQuery);
+    // console.log(parsedQuery);
     var positionedQuery = position.calculatePositions([
-        {
-            imgPath: '../public/images/' + parsedQuery.objectA + '.png',
-            imgWidth: 0,
-            imgHeight: 0
-        },
-        {
-            imgPath: '../public/images/' + parsedQuery.objectB + '.png',
-            imgWidth: 0,
-            imgHeight: 0
-        }
+        image.getImageObject(parsedQuery.objectA),
+        image.getImageObject(parsedQuery.objectB),
     ], parsedQuery.action, {
         width: 800,
         height: 600
     });
-    console.log(positionedQuery);
-    res.render('result', {});
+    // console.log(positionedQuery);
+    res.render('result', positionedQuery);
 });
 
 /*
