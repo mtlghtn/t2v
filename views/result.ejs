@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body style="text-align: center;">
-    <input type="hidden" id="param" value="<%= positionedQuery %>"/>
+    <input type="hidden" id="imgx" value="<%=positionedQuery.objectA.x%>"/>
+    <input type="hidden" id="imgy" value="<%=positionedQuery.objectA.y%>"/>
+    <input type="hidden" id="img2x" value="<%=positionedQuery.objectB.x%>"/>
+    <input type="hidden" id="img2y" value="<%=positionedQuery.objectB.y%>"/>
     <h1>Result - Picture !t</h1>
-    <img src='<%=positionedQuery.objectA.img.path%>'></img>
     <canvas class="output"></canvas>
     <button type="button" class="btn btn-outline-secondary go-back">Go Back</button>
 </body>
@@ -18,15 +20,21 @@
 <script src="bundle.js"></script>
 <script type="text/javascript">
     window.onload = function(){
-        var ctx = canvas[0].getContext("2d");
+        var ctx = $('.output')[0].getContext("2d");
 
         var img = new Image();
-        img.src = "" //image path here
-        ctx.drawImage(img, 10, 10);     //image, x, y
+        img.src = "<%=positionedQuery.objectA.img.path%>"; //image path here
+        img.width = "<%=positionedQuery.objectA.img.width%>";
+        img.height = "<%=positionedQuery.objectA.img.height%>";
+        var imgx = $('#imgx').val(), imgy = $('#imgy').val();
+        ctx.drawImage(img, imgx, imgy);     //image, x, y
 
         var img2 = new Image();
-        img2.src = "" //image path here
-        ctx.drawImage(img2, 10, 10);     //image, x, y
+        img2.src = "<%=positionedQuery.objectB.img.path%>"; //image path here
+        img.width = "<%=positionedQuery.objectB.img.width%>";
+        img.height = "<%=positionedQuery.objectB.img.height%>";
+        var img2x = $('#img2x').val(), img2y = $('#img2y').val();
+        ctx.drawImage(img2, img2x, img2y);     //image, x, y
     }
 </script>
 </html>
