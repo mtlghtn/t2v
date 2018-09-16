@@ -1,12 +1,15 @@
 var express = require('express'),
-    prepositions = require('./prepositions'),
+    parser = require('./parser'),
     position = require('./position'),
     bodyParser = require('body-parser'),
     router = express.Router();
 
 
 router.post('/results', function(req, res) {
-    console.log(req.body.query);
+    // console.log(req.body.query);
+    var rawQuery = req.body.query;
+    var processed = parser.parseSentence(rawQuery);
+    console.log(processed);
     res.render('result', {});
 });
 
