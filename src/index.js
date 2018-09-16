@@ -12,22 +12,20 @@ const imageDictionary = require('./imageDictionary');
         $.getJSON("object-manifest.json", function(data){
             var id, nameList, imgPath;
             collection = new imageCollection();
-            $.each(data.items, function(item){
-                $.each(item, function(k,v){
-                    switch(k){
-                        case 'id':
-                            id = v;
-                            break;
-                        case 'name':
-                            nameList = v;
-                            break;
-                        case 'imagePath':
-                            imgPath = v;
-                            break;
-                    }
-                });
-                collection.add((new imageDictionary(id, nameList, imgPath)).getDict());
+            $.each(data, function(k,v){
+                switch(k){
+                    case 'id':
+                        id = v;
+                        break;
+                    case 'name':
+                        nameList = v;
+                        break;
+                    case 'imagePath':
+                        imgPath = v;
+                        break;
+                }
             });
+            collection.add((new imageDictionary(id, nameList, imgPath)).getDict());
             sessionStorage.setItem('imgColl', JSON.stringify(collection.getDict()));
         });
     }

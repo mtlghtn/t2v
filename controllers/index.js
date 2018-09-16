@@ -1,5 +1,5 @@
 var express = require('express'),
-    prepositions = require('./prepositions'),
+    parser = require('./parser'),
     position = require('./position'),
     bodyParser = require('body-parser'),
     parser = require('./parser'),
@@ -7,8 +7,8 @@ var express = require('express'),
 
 
 router.post('/results', function(req, res) {
-    var query = req.body.query;
-    var parsedQuery = parser.parseSentence(query);
+    var rawQuery = req.body.query;
+    var parsedQuery = parser.parseSentence(rawQuery);
     var positionedQuery = position.calculatePositions([
         {
             imgPath: '../public/images/' + parsedQuery.objectA + '.png',

@@ -20,7 +20,7 @@ module.exports = class imageCollection {
     extend(obj, src) {
         for (var key in src) {
             if (src.hasOwnProperty(key)) {
-                if(obj.indexOf(key)) throw "This name is already defined for other object, operation aborted.";
+                //if(obj.indexOf(key)) throw "This name is already defined for other object, operation aborted.";
                 obj[key] = src[key];
             }
         }
