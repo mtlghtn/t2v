@@ -1,7 +1,7 @@
 # t2v
 a helper for those who can't draw
 
-##How to run:
+## How to run:
 Have npm installed.
 Clone Git repository.
 cd into repository, type ```npm install```.
