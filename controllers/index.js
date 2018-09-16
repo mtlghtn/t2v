@@ -8,6 +8,7 @@ var express = require('express'),
 
 
 router.post('/results', function(req, res) {
+    console.log(req.body);
     var rawQuery = req.body.query;
     var parsedQuery = parser.parseSentence(rawQuery);
     // console.log(parsedQuery);
@@ -15,8 +16,8 @@ router.post('/results', function(req, res) {
         image.getImageObject(parsedQuery.objectA),
         image.getImageObject(parsedQuery.objectB),
     ], parsedQuery.action, {
-        width: 800,
-        height: 600
+        width: req.body.width*2.2,
+        height: 1500
     });
     // console.log(positionedQuery);
     res.render('result', positionedQuery);
