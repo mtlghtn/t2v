@@ -1,13 +1,17 @@
 import './scss/index.scss'
 
+const imageCollection = require('./imageCollection');
+const imageDictionary = require('./imageDictionary');
+
 (function($){
     //Anonymous functions...
 
     //helper function to fetch object manifest
-    //@returns array
     function getObjectList() {
-        $.getJSON("../object-manifest.json", function(data){
-            var imgColl = new imageCollection(), id, nameList, imgPath;
+        var collection;
+        $.getJSON("object-manifest.json", function(data){
+            var id, nameList, imgPath;
+            collection = new imageCollection();
             $.each(data, function(k,v){
                 switch(k){
                     case 'id':
@@ -21,13 +25,16 @@ import './scss/index.scss'
                         break;
                 }
             });
-            imgColl.add(new imageDictionary(id, nameList, imgPath))
-        })
+            collection.add((new imageDictionary(id, nameList, imgPath)).getDict());
+            sessionStorage.setItem('imgColl', JSON.stringify(collection.getDict()));
+        });
     }
+    getObjectList();
+
 
     $(function(){
         //Run on DOM ready
-        const body = $('body');
+        const body = $('body'), imgColl = JSON.parse(sessionStorage.getItem('imgColl'));
 
         //validate form before submit, also strip tags to prevent XSS
         body.on('submit', '#scriptInput', function(e){
