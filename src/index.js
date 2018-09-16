@@ -34,7 +34,14 @@ const imageDictionary = require('./imageDictionary');
 
     $(function(){
         //Run on DOM ready
-        const body = $('body'), imgColl = JSON.parse(sessionStorage.getItem('imgColl'));
+        const body = $('body'), canvas = $('.output'), imgColl = JSON.parse(sessionStorage.getItem('imgColl'));
+
+        if(canvas.length > 0){
+            var ctx = canvas[0].getContext("2d");
+            ctx.beginPath();
+            ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+            ctx.stroke();
+        }
 
         //validate form before submit, also strip tags to prevent XSS
         body.on('submit', '#scriptInput', function(e){
